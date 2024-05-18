@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Extra Condensed', sans-serif !important;
+}
+html {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+
+}
+body {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-size: 16px;
+    background-repeat: no-repeat;
+    /* margin: 16px 16px; */
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 16px;
+    color: #F2ECFF !important;
+}
+a:hover {
+    opacity: 0.5;
+    transition: 0.5 ease-out;
+}
+
+
+
+.nav-item > a {
+  
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #F2ECFF;
+}
+.dropdown-item {
+    color: black !important;
+}
+button[type="button"] {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    margin: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    width: 100%;
+}
+.card {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.list-group-item{
+    overflow-y: scroll;
+    margin-bottom: 5px;
+}
+
+.taskGroup{
+    background-color: #719098;
+    border-radius: 15px;
+}
+.bar1,
+.bar2,
+.bar3 {
+    width: 27px;
+    height: 0.5px;
+    background-color: #fbfbfb;
+    margin: 5px 0;
+    transition: 0.4s; 
+}
+
+.task{
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: 1px black solid;
+}
+.btnPhongBan.active{
+    background-color: white;
+}
+
+.btnPhongBan{
+    background-color: #008170;
+}

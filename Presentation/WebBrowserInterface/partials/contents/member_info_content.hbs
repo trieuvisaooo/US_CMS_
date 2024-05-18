@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="resources/css/mem-info.css">
+<div id="main-frame" class="container-fluid rounded my-2 py-3">
+    <div class="row p-4">
+
+
+        {{#if mem.AVATAR}}
+        <img src="{{mem.AVATAR}}" id="user-img" class="rounded col-2 me-3" alt="...">
+        {{else}}
+        <img src="./resources/img/mem-info/user-image.png" id="user-img" class="rounded col-2 me-3" alt="...">
+        {{/if}}
+
+
+        <div class="user-info col rounded">
+            <div class="row">
+                <div class="col">
+                    <div class="info_1 row">
+                        <div class="col fw-bold p-4">
+                            <p>Họ tên:</p>
+                            <p>MSSV:</p>
+                            <p>Ban:</p>
+                            <p>Email:</p>
+                        </div>
+                        <div class="col p-4">
+                            {{#unless mem.HOTEN}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.HOTEN}}</p>
+                            <p>{{mem.MSSV}}</p>
+
+                            {{#unless mem.BAN}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.BAN}}</p>
+
+                            {{#unless mem.EMAIL}}
+                                <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.EMAIL}}</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col">
+                    <div class="info_2 row">
+                        <div class="col fw-bold p-4">
+                            <p>Lớp</p>
+                            <p>SDT</p>
+                            <p>Ngày sinh</p>
+                            <p>Ngày tham gia</p>
+                        </div>
+                        <div class="col p-4">
+                            {{#unless mem.LOP}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.LOP}}</p>
+                            {{#unless mem.SDT}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.SDT}}</p>
+                            {{#unless mem.NGAYSINH}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.NGAYSINH}}</p>
+                            {{#unless mem.NGAYVAOCLB}}
+                            <p>...</p>
+                            {{/unless}}
+                            <p>{{mem.NGAYVAOCLB}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button class="btn btn-sm mb-2 text-light rounded-pill" style="background:#008170">
+                            <a href="/business/updateUserInfo-{{mem.MSSV}}">THAY ĐỔI THÔNG TIN</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task list -->
+    <div id="task-area" class="container-fluid rounded p-3">
+        <h2>TASK CÁ NHÂN</h2>
+        <hr class="divider">
+        <div class="container">
+            <div class="list-group list-group-numbered">
+                <ul>
+                    {{#each allTask}}
+                    <li class="list-group-item d-flex justify-content-between align-items-start" onclick="window.location.href='/business/viewtask?id={{this.ID}}'">
+                        <div class="me-auto">
+                            <div class="fw-bold" >
+                                {{this.TIEUDE}}</div>
+                        </div>
+                        {{#switch this.TRANGTHAI}}
+                        {{#case -1}} <span class="badge bg-danger rounded-pill p-3">CHƯA THỰC HIỆN</span>
+                        {{/case}}
+                        {{#case 0}} <span class="badge bg-warning rounded-pill p-3">ĐANG THỰC HIỆN</span>
+                        {{/case}}
+                        {{#case 1}} <span class="badge bg-success rounded-pill p-3">HOÀN THÀNH</span>
+                        {{/case}}
+                        {{/switch}}
+                    </li>
+                    {{/each}}
+                    {{!-- <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="me-auto">
+                            <div class="fw-bold">Some title 1</div>
+                        </div>
+                        <span class="badge bg-success rounded-pill p-3">HOÀN THÀNH</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="me-auto">
+                            <div class="fw-bold">Some title 1</div>
+                        </div>
+                        <span class="badge bg-success rounded-pill p-3">HOÀN THÀNH</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="me-auto">
+                            <div class="fw-bold">Some title 1</div>
+                        </div>
+                        <span class="badge bg-warning rounded-pill p-3">ĐANG THỰC HIỆN</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="me-auto">
+                            <div class="fw-bold">Some title 1</div>
+                        </div>
+                        <span class="badge bg-warning rounded-pill p-3">ĐANG THỰC HIỆN</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="me-auto">
+                            <div class="fw-bold">Some title 1</div>
+                        </div>
+                        <span class="badge bg-danger rounded-pill p-3">CHƯA THỰC HIỆN</span>
+                    </li> --}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

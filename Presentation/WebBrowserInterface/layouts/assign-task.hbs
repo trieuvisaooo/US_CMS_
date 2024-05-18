@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Task</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="/resources/css/assign-task.css">
+    <script src="/resources/js/assign-task.js"></script>
+    <link rel="stylesheet" href="/resources/css/manage_style.css">
+</head>
+
+<body>
+
+
+
+    {{> headers/member_homepage_header}}
+    {{#if taskmanager}}
+    {{>contents/task_manager}}
+    {{/if}}
+    {{#if addtask}}
+    {{>contents/add_task}}
+    {{/if}}
+    {{#if isTask}}
+    {{>contents/task}}
+    {{/if}}
+
+    
+    <div id="footer">
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="/resources/js/home_script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".btnPhongBan").click(function (e) {
+                if (!$(this).hasClass('active')) {
+                    $(".btnPhongBan.active").removeClass("active");
+                    $(this).addClass("active");
+                    var data = {};
+                    data.title = "title";
+                    data.message = $(this).attr("id");
+                    
+                    $.ajax({
+                        type: 'GET',
+                        data: data,
+                        
+                        url: '/business/taskonBan',
+                        success: function (data) {
+                   
+                            const todo = document.getElementById("TODO_tasks");
+                            while (todo.firstChild) {
+                                todo.removeChild(todo.lastChild);
+                            }
+                            for (i of data.TODOTask) {
+                                var tasks = document.createElement('div');
+                                tasks.innerHTML = `<div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;"
+                                    onclick="window.location.href='/business/eachtask?id=${i.ID}'">
+                                    <div class="card-body">
+                                        <b>${i.TIEUDE}</b>
+                                        <p style="text-align:right">To: ${i.TENNGUOITHUCHIEN }</p>
+                                    </div>
+                                </div>`
+                                todo.appendChild(tasks)
+                            }
+                            
+                            const inprogress = document.getElementById("IN_PROGRESS_tasks");
+                            while (inprogress.firstChild) {
+                                inprogress.removeChild(inprogress.lastChild);
+                            }
+                             for (i of data.INPROGRESSTask) {
+                                var tasks = document.createElement('div');
+                                tasks.innerHTML = `<div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;"
+                                    onclick="window.location.href='/business/eachtask?id=${i.ID}'">
+                                    <div class="card-body">
+                                        <b>${i.TIEUDE}</b>
+                                        <p style="text-align:right">To: ${i.TENNGUOITHUCHIEN }</p>
+                                    </div>
+                                </div>`
+                                inprogress.appendChild(tasks)
+                            }
+                            const done = document.getElementById("DONE_tasks");
+                            while (done.firstChild) {
+                                done.removeChild(done.lastChild);
+                            }
+                             for (i of data.DONETask) {
+                                var tasks = document.createElement('div');
+                                tasks.innerHTML = `<div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;"
+                                    onclick="window.location.href='/business/eachtask?id=${i.ID}'">
+                                    <div class="card-body">
+                                        <b>${i.TIEUDE}</b>
+                                        <p style="text-align:right">To: ${i.TENNGUOITHUCHIEN }</p>
+                                    </div>
+                                </div>`
+                                done.appendChild(tasks)
+                            }
+                        }
+                    });
+
+                }
+            });
+        });
+       
+    </script>
+</body>
+
+</html>

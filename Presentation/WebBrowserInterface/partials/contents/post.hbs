@@ -1,0 +1,186 @@
+<script src="/resources/js/post.js"></script>
+<link rel="stylesheet" href="/resources/css/post.css">
+
+{{!-- <div class="main">
+    <div class="container post">
+        <div class="text-center">
+            <h1>{{post.TIEUDE}}</h1>
+        </div>
+        <!-- Nội dung -->
+        <div class="container ">
+            <div class="post-content">
+                <p> {{post.NOIDUNG}} </p>
+
+            </div>
+            <!-- Hình ảnh -->
+            <div>
+                <div style="margin: auto 0;">
+                    <img src="./resources/img/home/hinh-nen-cute-co-chu.jpg" style="width: 70%; margin-left: auto;
+                        margin-right: auto;
+                        display: block;" />
+                    <p class="text-center" style="font-size: small; font-size: 26px">Tác giả: {{post.NGUOIDANG}}</p>
+                </div>
+
+                {{#if isMyPost}}
+                <div class="text-center">
+                    <a href="/business/update_post-{{post.ID}}" class="btn btn-primary">Sửa</a>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+
+
+<div class="main text-light">
+
+    <h2 class="text-center" style="margin-top: 40px;margin-bottom: 40px; ">BÀI VIẾT KHOA HỌC</h2>
+
+    <div class="container">
+        <hr>
+        <div class="text-center">
+            <h3>{{post.TIEUDE}}</h3>
+        </div>
+        <!-- Hình ảnh và nội dung -->
+        <div style="display: flex; justify-content: space-between;">
+            <img class="img" src="{{post.ANHDINHKEM}}" style="width: 45%; margin-right: 20px;" />
+            <div>
+
+                <h4>
+                    {{!-- {{post.NOIDUNG}} --}}
+                    {{#each post.PARAGRAPH}}
+                    <h4> {{this.text}}</h4>
+                    {{/each}}
+                </h4>
+                <p class="content" style="font-size: small;">Ngày đăng: {{post.NGAYDANG}}</p>
+                <p class="author" style="font-size: small;">Người đăng: {{post.TENNGUOIDANG}}</p>
+            </div>
+        </div>
+        {{#if isMyPost}}
+        <div class="text-end">
+            <a href="/business/update_post-{{post.ID}}" class="btn btn-success">Sửa</a>
+        </div>
+        {{/if}}
+        {{#if isPermission}}
+            {{#if chuaDuyet}}
+            <div class="d-flex justify-content-end">
+
+                <div class="text-center">
+                    <a href="/business/update_post2-{{post.ID}}" class="btn btn-success">Sửa</a>
+                </div>
+                
+                <form action="approve_post" method="get">
+                    <input type="hidden" name="id" value="{{post.ID}}">
+                    <button type="submit" class="btn btn-success ">Duyệt bài</button>
+                </form>
+                <form action="deny_post" method="get" style="float: right" >
+                                        <input type="hidden" name="id" value="{{post.ID}}">
+                                        <button type="submit" class = "btn btn-danger">Từ chối</button>
+                                    </form>
+                                    <form action="delete_post" method="get" style="float: right"
+                    onsubmit="return confirm('Bạn thực sự muốn xoá bài viết này?');">
+                    <input type="hidden" name="id" value="{{post.ID}}">
+                    <button type="submit" class="btn btn-danger">XOÁ</button>
+                </form>
+            </div>
+
+            {{else}}
+            <div class="d-flex justify-content-end">
+                <div class="text-center">
+                    <a href="/business/update_post2-{{post.ID}}" class="btn btn-success">Sửa</a>
+                </div>
+                <form action="delete_post" method="get" style="float: right"
+                    onsubmit="return confirm('Bạn thực sự muốn xoá bài viết này?');">
+                    <input type="hidden" name="id" value="{{post.ID}}">
+                    <button type="submit" class="btn btn-danger">XOÁ</button>
+                </form>
+            </div>
+
+
+            {{/if}}
+
+        {{/if}}
+        <!-- Lượt yêu thích -->
+        <!-- <div class="container">
+                <div class="like-container">
+                    <button id="likeButton" class="heart">&#x2764;
+                        
+                    </button>
+                    <span id="likeCount">0</span> Likes
+                </div>
+            </div>
+            
+            </div> -->
+        <!-- Lượt bình luận -->
+        <!-- <div class="container" id="PostComments">
+                <h2>Bình luận</h2>
+            
+                <div class="d-flex flex-start mb-4">
+                    <img class="rounded-circle shadow-1-strong me-3"
+                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" 
+                         alt="avatar" width="65" height="65" />
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <textarea class="form-control mb-2"></textarea>
+                            <button type="submit" class="btn btn-primary float-right">Gửi</button>
+                        </div>
+                    </div>
+                </div> -->
+
+        <!-- Comments Display Section -->
+        <!-- <div class="comment">
+                    <div class="container py-5 text-dark">
+                        <div class="row d-flex justify-content-center">
+            
+                            Comment 1 
+                            <div class="d-flex flex-start mb-4">
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" 
+                                     alt="avatar" width="65" height="65" />
+                                <div class="card w-100">
+                                    <div class="card-body p-4">
+                                        <h5>Khắc Triệu</h5>
+                                        <p class="small">3 hours ago</p>
+                                        <p class="cmt">Cras sit amet nibh libero, in gravida nulla...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
+                                                <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            Comment 2 
+                            <div class="d-flex flex-start">
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" 
+                                     alt="avatar" width="65" height="65" />
+                                <div class="card w-100">
+                                    <div class="card-body p-4">
+                                        <h5>Minh Triết</h5>
+                                        <p class="small">5 hours ago</p>
+                                        <p class="cmt">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                                <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
+                                            </div>
+                                            <a href="#!" class="link-muted"><i class="fas fa-reply me-1"></i>Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+        <!-- </div>  -->
+
+
+    </div>

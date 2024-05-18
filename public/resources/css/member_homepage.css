@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    /* color: white; */
+}
+
+#header {
+    margin-top: 30px;
+    padding-left: 120px;
+    padding-right: 120px;
+    font-size: 16px;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border: 0px;
+}
+
+.background {
+    background: #0f0f0f;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 16px;
+    color: #F2ECFF !important;
+}
+a:hover {
+    opacity: 0.5;
+    transition: 0.5 ease-out;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0a0909;
+}
+
+.nav-item > a {
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #F2ECFF;
+}
+
+.dropdown-menu li {
+    position: relative;
+    }
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -1px;
+}
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+}
+
+.dropdown-item {
+    color: black !important;
+}
+
+
+button[type="button"] {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.burger-menu > span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: white;
+    transition: all 300ms ease-in-out;
+    transform-origin: 6px 1px;
+}
+
+.burger-menu > span:nth-child(1) {
+    margin-top: 6px;
+}
+
+.burger-menu > span:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.club-infor h3 {
+    font-family: 'Bungee';
+    font-size: 40px;
+}
+
+.club-infor q {
+    display: block;
+    font-family: 'Amatic SC', sans-serif;   
+    font-size: 20px;
+}
+
+.popular-activities, .favourite-posts{
+    margin-top: 40px;
+}
+
+
+.popular-activities h2, .favourite-posts h2{
+    font-family: 'Bungee';
+}
+
+
+.main {
+    margin: 40px 85px 40px 85px;
+}
+
+/* .card {
+    background-color: #0F0F0F;
+    color: white;
+} */
+
+#footer {
+    background-color: #0f0f0f;
+    height: 10px;
+}
+
+.nav-link.active {
+    font-weight: 500;
+    color:#008170;
+    opacity: 0.5;
+}

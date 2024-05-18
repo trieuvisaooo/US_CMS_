@@ -1,0 +1,144 @@
+{{!-- <div class="department-navbar flex flex-ai-c">
+    <div class="department flex flex-jc-sb">
+        <button class="department__content">Ban nội dung</button>
+        <button class="department__media">Ban truyền thông</button>
+        <button class="department__logistics">Ban hậu cần</button>
+        <button class="department__event">Ban sự kiện</button>
+    </div>
+
+    <div class="add-task flex flex-ai-c">
+        <button class="add-task-btn">+</button>
+        <p>Thêm task</p>
+    </div>
+</div> --}}
+{{!-- --}}
+<div class="main">
+    <div>
+        <div id="err" style="margin: 0 auto;background-color:rgb(217, 88, 88);color:white;" class="text-center">
+        </div>
+
+    </div>
+
+    <form class="task-infor" id="addTask"><!--action="/business/addNewTask" method="post"-->
+
+        <div class="task-infor__items">
+            <label for="title">Tiêu đề</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+
+        <div class="task-infor__items" id="assign-for">
+            <label for="mem_assigned">Giao việc cho: </label>
+            {{!-- <input list="mem-list" name='mem_assigned' id="mem-assigned"> --}}
+            <select id="mem_assigned" name="mem_assigned" value="{{member_name}}">
+                {{#each uservalue}}
+                <option value="{{this.HOTEN}}">{{this.HOTEN}}</option>
+                {{/each}}
+            </select>
+            {{!-- <datalist id="mem-list">
+                {{#each uservalue}}
+                <option value="{{this.HOTEN}}"></option>
+                {{/each}}
+
+            </datalist> --}}
+        </div>
+        {{!-- <div class="task-infor__items">
+            <label for="due-date">Due date</label>
+            <input type="date" name='due_date' id="duedate" required>
+        </div> --}}
+        <div class="task-infor__items">
+            <label for="start-date">Start date</label>
+            <input type="date" name='start_date' id="start_date" required>
+        </div>
+        <div class="task-infor__items">
+            <label for="due-date">Due date</label>
+            <input type="date" name='due_date' id="due_date" required>
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="content">Nội dung</label>
+            <input type="text" name="content" id="content" required>
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="cmt">Bình luận</label>
+            <input type="text" name="cmt" id="cmt" required>
+        </div>
+
+        <div class="task-infor__status">
+            <label for="status">Trạng thái</label>
+            <select name="status" id="status" value="{{status}}">
+                <option value="Chưa bắt đầu">Chưa bắt đầu</option>
+                <option value="Đang thực hiện">Đang thực hiện </option>
+                <option value="Đã hoàn thành">Đã hoàn thành</option>
+            </select>
+
+        </div>
+        <div class="main__btn">
+            {{!-- <button onclick="window.location.href='/business/assigntask'" class="del-btn">Trở lại</button> --}}
+            <button onclick="returnAddTask()" class="del-btn">Hủy</button>
+            {{!-- <button class="del-btn">Xóa</button> --}}
+            <button class="save-btn" type="submit">Tạo</button>
+        </div>
+    </form>
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+
+    function returnAddTask() {
+        var answer = confirm("Bạn có muốn hủy thêm task?");
+        if (answer) {
+            window.location.href = '/business/assigntask';
+        }
+    }
+    $(document).ready(function () {
+        $("#addTask").on('submit', function (e) {
+            e.preventDefault();
+            
+            
+            let title = $('#title').val();
+            let mem_assigned = $('#mem_assigned').val();
+            let start_date = $("#start_date").val();
+            let due_date = $('#due_date').val();
+            let content = $('#content').val();
+            let cmt = $('#cmt').val();
+            let status = $('#status').val();
+            let data = {
+                title: title,
+                mem_assigned : mem_assigned,
+                start_date: start_date,
+                due_date : due_date,
+                content: content,
+                cmt: cmt,
+                status: status
+            }
+            
+            $.ajax({
+                type: 'POST',
+                url: '/business/addNewTask',
+                data: data,
+                success: function (data1) {
+                    if (data1.checkAdd===true)
+                    {
+                        alert("Thêm task thành công");
+                        window.location.href = '/business/assigntask'
+                    }
+                    else{
+                        $('#err').html(data1.err)
+                    }
+                },
+                error: function (data) {
+
+                }
+            });
+
+        }
+        )
+    });
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Biểu Đồ Thống Kê</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="/resources/css/assign-task.css">
+    <script src="/resources/js/assign-task.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/chart.css">
+    <link rel="stylesheet" href="/resources/css/assign-task.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+</head>
+
+<body>
+    {{>headers/member_homepage_header}}
+
+    <div class="info text-light ">
+        <h2 class="text-light">Thông Tin Câu Lạc Bộ Trong Năm Học</h2>
+        <p class="text-light"><strong>Tổng số thành viên:</strong> <span id="totalMembers"></span></p>
+        <p class="text-light"><strong>Số tài khoản bị khóa:</strong> <span id="lockedAccounts"></span></p>
+    </div>
+    <hr>
+
+    <div class="chart-container text-light">
+
+        <canvas id="myChart" class="text-light"></canvas>
+    </div>
+
+
+
+    <script src="/resources/js/chart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoạt động</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/club_activities.css">
+
+</head>
+
+<body>
+    {{#if isUser}}
+    {{>headers/member_homepage_header}}
+    {{else}}
+    {{> headers/homepage_header }}
+    {{/if}}
+
+    <main class="my-5">
+        <div class="container">
+
+            <section class="text-center text-md-start">
+                <h4 class="mb-5" style="font-family: Bungee;"><strong>KHOA HỌC </strong></h4>
+                {{#each listPosts}}
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init
+                            data-mdb-ripple-color="light">
+                            <img src="{{this.ANHDINHKEM}}" size="20px" class="img-fluid img-thumbnail" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>{{this.TIEUDE}}</h5>
+                        <p>
+                            {{this.NOIDUNG}}
+                        </p>
+
+                        <button type="button" onclick="window.location.href = '/application/viewpost?id={{this.ID}}'" class="btn btn-primary" data-mdb-ripple-init>Xem bài viết</button>
+                    </div>
+                </div>
+                {{/each}}
+
+                <!-- Post -->
+                {{!-- <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init
+                            data-mdb-ripple-color="light">
+                            <img src="./resources/img/thumbnail_post4.png" class="img-fluid" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Hoạt động tổng kết năm</h5>
+                        <p>
+                            Một năm mới nữa lại đến, một năm cũ đã qua đi. Năm qua clb đã đạt được nhiều thành tựu,
+                            cũng như rút được nhiều kinh nghiệm. Buổi hoạt động tổng kết là nơi ghi nhận ...
+                        </p>
+
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Xem bài viết</button>
+                    </div>
+                </div>
+
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init
+                            data-mdb-ripple-color="light">
+                            <img src="./resources/img/thumbnail_post1.png" class="img-fluid" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Tuổi trẻ tiên phong chuyển đổi số</h5>
+                        <p>
+                            Chúng tớ đã có chuyển tham quan công viên phần mềm ITP - VNUHCM, cùng với sự nhiệt....
+                        </p>
+
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Xem bài viết</button>
+                    </div>
+                </div>
+
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init
+                            data-mdb-ripple-color="light">
+                            <img src="./resources/img/thumbnail_post2.png" class="img-fluid" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Buổi cắm trại bên bờ biển cần giờ</h5>
+                        <p>
+                            Cắm trại bên bờ biển Cần Giờ không chỉ là một trải nghiệm ngoại ô tuyệt vời mà còn là ...
+                        </p>
+
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Xem bài viết</button>
+                    </div>
+                </div>
+
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init
+                            data-mdb-ripple-color="light">
+                            <img src="./resources/img/thumbnail_post3.png" class="img-fluid" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Sinh hoạt thường niên</h5>
+                        <p>
+                            Những buổi sinh hoạt thường niên giữa các thành viên không chỉ là dịp lý tưởng để tạo ra ...
+                        </p>
+
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Xem bài viết</button>
+                    </div>
+                </div> --}}
+
+            </section>
+
+            {{!-- <nav class="my-4" aria-label="...">
+                <ul class="pagination pagination-circle justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                            < </a>
+                    </li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">></a>
+                    </li>
+                </ul>
+            </nav> --}}
+        </div>
+    </main>
+    <!--Main layout-->
+
+    
+        {{>footers/homepage_footer}}
+
+    <script src="./resources/js/sticky_header.js"></script>
+</body>
+
+</html>

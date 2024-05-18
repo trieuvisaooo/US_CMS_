@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Extra Condensed', sans-serif !important;
+}
+
+main {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-size: 16px;
+    background-repeat: no-repeat;
+    margin: 0px 120px;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 16px;
+    color: #F2ECFF !important;
+}
+a:hover {
+    opacity: 0.5;
+    transition: 0.5 ease-out;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3a3a3a;
+    border: 1px solid #3a3a3a;
+}
+
+.nav-item > a {
+  
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #F2ECFF;
+}
+.dropdown-item {
+    color: black !important;
+}
+
+/* .dropdown-toggle >span {
+    display: block;
+    width: 26px;
+    height: 1px;
+    background-color: white;
+    transition: all 300ms ease-in-out;
+    transform-origin: 6px 1px;
+} */
+
+button[type="button"] {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    margin: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    width: 110%;
+}
+
+.member-list-container {
+    width: 100%;
+    height: 100%;
+    background-color: #232d3f;
+    border-radius: 12px;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+.post-list-title{
+    font-size: 26px;
+    font-weight: 600;
+    color: #0f0f0f;;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 0.1em;
+    margin: 1.5em 6em 1em 6em;
+    text-align: center;
+}
+
+.member-list-table {
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-spacing: 0px 18px;
+    overflow: auto;
+}
+
+.member-list-table tbody tr {
+    background: white;
+    border: none;
+}
+
+.member-list-table tbody th, .member-list-table tbody td {
+    border: none;
+    /*padding: 10px;*/
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.member-list-table tbody td.member-id {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.member-list-table tbody td.member-department {
+
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.member-list-table tbody td {
+    text-align: center;
+    padding: 2em;;
+}
+
+
+
+

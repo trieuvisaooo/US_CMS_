@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Extra Condensed', sans-serif !important;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+html {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+
+}
+body {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-size: 16px;
+    background-repeat: no-repeat;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 16px;
+    color: #F2ECFF !important;
+}
+a:hover {
+    opacity: 0.5;
+    transition: 0.5 ease-out;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3a3a3a;
+    border: 1px solid #3a3a3a;
+}
+
+.nav-item > a {
+  
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #F2ECFF;
+}
+.dropdown-item {
+    color: black !important;
+}
+
+#main-frame {
+    background-color: #232D3F;
+}
+
+#user-img {
+    border: 1px white solid;
+    
+}
+
+.user-info {
+    background-color: rgb(56, 61, 74);
+    color: white;
+    font-size: 16px;
+}
+
+#task-area {
+    color: white;
+    background-color: rgb(56, 61, 74);
+}
+
+.task > p {
+    color: black;
+    font-size: 26px;
+}
+
+.task {
+    background-color: #F2ECFF;
+}
+
+.list-group li {
+    background-color: rgb(56, 61, 74);
+    border: none;
+    color: #F2ECFF;
+    font-size: 22px;
+}
+
+.badge {
+    width: 140px;
+    color: white;
+}

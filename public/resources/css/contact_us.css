@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+#header {
+    margin-top: 20px;
+    padding-left: 85px;
+    padding-right: 85px;
+    font-size: 16px;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border: 0px;
+}
+
+.background {
+    background: #0f0f0f;
+}
+
+.header-item{
+    color: white;
+}
+
+.nav-link.active {
+    font-weight: 500;
+    /* color:#008170; */
+    opacity: 0.5;
+}
+
+.nav-link :hover {
+    opacity: 0.5;
+}
+
+
+#DangKy {
+    padding: 2px 20px;
+    border-radius: 24px;
+    border: 1px solid white;
+    color: white;
+}
+
+#DangNhap {
+    padding: 2px 20px;
+    margin-left: 10px;
+    border-radius: 24px;
+    border: 1px solid white;
+    color: white;
+    background-color: #008170;
+}
+
+section {
+    margin-left: 85px;
+    margin-right: 85px;
+}

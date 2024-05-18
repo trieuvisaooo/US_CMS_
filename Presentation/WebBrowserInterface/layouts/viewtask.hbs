@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Task</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="/resources/css/assign-task.css">
+    <script src="/resources/js/assign-task.js"></script>
+    <link rel="stylesheet" href="/resources/css/manage_style.css">
+</head>
+
+<body>
+    {{> headers/member_homepage_header}}
+    <div class="main">
+    <div>
+        <div id="err" style="margin: 0 auto;background-color:rgb(217, 88, 88);color:white;" class="text-center">
+        </div>
+
+    </div>
+    <form id="changethistask" class="task-infor changeTask"  >
+
+        <div class="task-infor__items">
+            {{!-- <input name="id" value="{{id1}}" style="display: none"> --}}
+            <label for="title">Tiêu đề</label>
+            <input type="text" name="title" id="title" value="{{title}}" required readonly disabled>
+        </div>
+
+        <div class="task-infor__items" id="assign-for">
+            <label for="mem_assigned">Giao việc cho: </label>
+            <select id="mem_assigned" name="mem_assigned" required disabled>
+                {{#select member_name}}
+                {{#each uservalue}}
+
+                <option value="{{this.HOTEN}}">{{this.HOTEN}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+
+        <div class="task-infor__items">
+            <label for="start-date">Start date</label>
+            <input type="date" name='start_date' id="start_date" value="{{start_date}}" required readonly disabled>
+        </div>
+        <div class="task-infor__items">
+            <label for="due-date">Due date</label>
+            <input type="date" name="due_date" id="due_date" value="{{due_date}}" required readonly disabled>
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="content">Nội dung</label>
+            <input type="text" name="content" id="content" value="{{content}}" required readonly disabled> 
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="cmt">Bình luận</label>
+            <input type="text" name="cmt" value="{{cmt}}" id="cmt" required readonly disabled>
+        </div>
+
+        <div class="task-infor__status">
+            <label for="status">Trạng thái</label>
+            <select name="status" id="status" value="Đang thực hiện">
+                {{#select status}}
+                <option value="Chưa bắt đầu" >Chưa bắt đầu</option>
+                <option  value="Đang thực hiện" >Đang thực hiện </option>
+                <option  value="Đã hoàn thành">Đã hoàn thành</option>
+                {{/select}}
+            </select>
+
+        </div>
+        <div class="main__btn">
+            <button  type="submit"class="save-btn" >Lưu</button>
+        </div>
+    </form>
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script>
+    /*
+    $(document).ready(function(){
+
+        $(".changeTask").submit( function (e) {
+            alert("Check")
+            e.preventDefault();
+            var answer = confirm("Bạn có muốn chỉnh sửa task này?");
+            if (answer) {
+                //  let id = {{ id1 }};
+                let title = $('#title').val();
+                let mem_assigned = $('#mem_assigned').val();
+                let start_date = $("#start_date").val();
+                let due_date = $('#due_date').val();
+                let content = $('#content').val();
+                let cmt = $('#cmt').val();
+                let status = $('#status').val();
+                let data = {
+                    title: title,
+                    mem_assigned: mem_assigned,
+                    start_date: start_date,
+                    due_date: due_date,
+                    content: content,
+                    cmt: cmt,
+                    status: status
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/business/changeTask',
+                    data: data,
+                    success: function (data1) {
+                        alert("Check")
+                    },
+                    error: function (data) {
+
+                    }
+                });
+
+            }
+        };
+
+           
+        )});*/
+$(document).ready(function(){
+    $(".changeTask").submit(function(e) {
+       
+        e.preventDefault();
+        var answer = confirm("Bạn có muốn chỉnh sửa task này?");
+        if (answer) {
+                
+                let id = {{ id1 }};
+                
+                let title = $('#title').val();
+                let mem_assigned = $('#mem_assigned').val();
+                let start_date = $("#start_date").val();
+                let due_date = $('#due_date').val();
+                let content = $('#content').val();
+                let cmt = $('#cmt').val();
+                let status = $('#status').val();
+                let data = {
+                    id: id,
+                    title: title,
+                    mem_assigned: mem_assigned,
+                    start_date: start_date,
+                    due_date: due_date,
+                    content: content,
+                    cmt: cmt,
+                    status: status
+                };
+               
+            $.ajax({
+                
+                    type: 'POST',
+                    url: '/business/changeTask',
+                    data: data,
+                    success: function (data1) {
+                        if (data1.checkChange===true)
+                    {
+                        window.location.href = '/business/my_profile'
+                    }
+                    else{
+                        $('#err').html(data1.err)
+                    }
+                    },
+                    error: function (data) {
+
+                    }
+            });
+        }
+    }); // Corrected placement of the closing parenthesis
+});
+</script>
+
+
+        {{>footers/homepage_footer}}
+
+    <div id="footer">
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="/resources/js/home_script.js"></script>
+    
+</body>
+
+</html>

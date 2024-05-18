@@ -1,0 +1,173 @@
+<div class="main">
+    <div>
+        <div id="err" style="margin: 0 auto;background-color:rgb(217, 88, 88);color:white;" class="text-center">
+        </div>
+
+    </div>
+    <form id="changethistask" class="task-infor changeTask"  >
+
+        <div class="task-infor__items">
+            {{!-- <input name="id" value="{{id1}}" style="display: none"> --}}
+            <label for="title">Tiêu đề</label>
+            <input type="text" name="title" id="title" value="{{title}}" required>
+        </div>
+
+        <div class="task-infor__items" id="assign-for">
+            <label for="mem_assigned">Giao việc cho: </label>
+            <select id="mem_assigned" name="mem_assigned">
+                {{#select member_name}}
+                {{#each uservalue}}
+
+                <option value="{{this.HOTEN}}">{{this.HOTEN}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+
+        <div class="task-infor__items">
+            <label for="start-date">Start date</label>
+            <input type="date" name='start_date' id="start_date" value="{{start_date}}" required>
+        </div>
+        <div class="task-infor__items">
+            <label for="due-date">Due date</label>
+            <input type="date" name="due_date" id="due_date" value="{{due_date}}" required>
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="content">Nội dung</label>
+            <input type="text" name="content" id="content" value="{{content}}" required>
+        </div>
+
+
+        <div class="task-infor__items">
+            <label for="cmt">Bình luận</label>
+            <input type="text" name="cmt" value="{{cmt}}" id="cmt" required>
+        </div>
+
+        <div class="task-infor__status">
+            <label for="status">Trạng thái</label>
+            <select name="status" id="status" value="Đang thực hiện">
+                {{#select status}}
+                <option value="Chưa bắt đầu" >Chưa bắt đầu</option>
+                <option  value="Đang thực hiện" >Đang thực hiện </option>
+                <option  value="Đã hoàn thành">Đã hoàn thành</option>
+                {{/select}}
+            </select>
+
+        </div>
+        <div class="main__btn">
+            <button type="reset" onclick="window.location.href='/business/assigntask'" class="del-btn">Trở lại</button>
+            <button type="reset" class="del-btn" onclick="deleteTask({{id}})">Xóa</button>
+            <button  type="submit"class="save-btn" >Lưu</button>
+        </div>
+    </form>
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script>
+    /*
+    $(document).ready(function(){
+
+        $(".changeTask").submit( function (e) {
+            alert("Check")
+            e.preventDefault();
+            var answer = confirm("Bạn có muốn chỉnh sửa task này?");
+            if (answer) {
+                //  let id = {{ id1 }};
+                let title = $('#title').val();
+                let mem_assigned = $('#mem_assigned').val();
+                let start_date = $("#start_date").val();
+                let due_date = $('#due_date').val();
+                let content = $('#content').val();
+                let cmt = $('#cmt').val();
+                let status = $('#status').val();
+                let data = {
+                    title: title,
+                    mem_assigned: mem_assigned,
+                    start_date: start_date,
+                    due_date: due_date,
+                    content: content,
+                    cmt: cmt,
+                    status: status
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/business/changeTask',
+                    data: data,
+                    success: function (data1) {
+                        alert("Check")
+                    },
+                    error: function (data) {
+
+                    }
+                });
+
+            }
+        };
+
+           
+        )});*/
+$(document).ready(function(){
+    $(".changeTask").submit(function(e) {
+       
+        e.preventDefault();
+        var answer = confirm("Bạn có muốn chỉnh sửa task này?");
+        if (answer) {
+                
+                let id = {{ id1 }};
+                
+                let title = $('#title').val();
+                let mem_assigned = $('#mem_assigned').val();
+                let start_date = $("#start_date").val();
+                let due_date = $('#due_date').val();
+                let content = $('#content').val();
+                let cmt = $('#cmt').val();
+                let status = $('#status').val();
+                let data = {
+                    id: id,
+                    title: title,
+                    mem_assigned: mem_assigned,
+                    start_date: start_date,
+                    due_date: due_date,
+                    content: content,
+                    cmt: cmt,
+                    status: status
+                };
+               
+            $.ajax({
+                
+                    type: 'POST',
+                    url: '/business/changeTask',
+                    data: data,
+                    success: function (data1) {
+                        if (data1.checkChange===true)
+                    {
+                        window.location.href = '/business/assigntask'
+                    }
+                    else{
+                        $('#err').html(data1.err)
+                    }
+                    },
+                    error: function (data) {
+
+                    }
+            });
+        }
+    }); // Corrected placement of the closing parenthesis
+});
+</script>
+<script>
+    
+</script>
+<script>
+    function deleteTask(id) {
+        var answer = confirm("Bạn có muốn xóa task này?");
+        if (answer) {
+            window.location.href = `/business/deletetask?id=${id}`;
+        };
+    }
+</script>

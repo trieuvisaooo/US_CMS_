@@ -1,0 +1,168 @@
+<link rel="stylesheet" href="/resources/css/member_homepage.css">
+{{!--
+<script src="/resources/js/home_script.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script src="/resources/js/active_nav.js"></script>
+
+<div id="header">
+    <nav class="navbar navbar-expand-lg border-body">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <button class="" id="logo"> <img src="/resources/img/thumbnail_post2.png"
+                        style="width: 40px; height: 40px;border-radius: 50%;">
+                </button>
+                <a href="#">US-CMS</a>
+            </div>
+            {{#if isMemberManagement}}
+            <div class="search-form d-flex">
+
+                <button class="btn btn-secondary rounded-start-pill" type="submit"
+                    style="background-color: #008170"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+
+                <form class="d-flex" role="search" action="/business/search_member" method="post">
+                    <input name="search_content" class="form-control rounded-end-pill" type="search"
+                        placeholder="Tìm kiếm thành viên" aria-label="Search">
+                </form>
+
+
+
+            </div>
+            {{/if}}
+            {{#if isPostManagement}}
+            <div class="search-form d-flex">
+
+                <button class="btn btn-secondary rounded-start-pill" type="submit"
+                    style="background-color: #008170"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+
+                <form class="d-flex" role="search" method="get" action="/business/search_post">
+                    <input name="searchID" class="form-control rounded-end-pill" type="search"
+                        placeholder="Tìm kiếm thông tin" aria-label="Search">
+                </form>
+            </div>
+            {{/if}}
+
+            {{#if isSearchPost}}
+            <div class="search-form d-flex">
+
+                <button class="btn btn-secondary rounded-start-pill" type="submit"
+                    style="background-color: #008170"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+
+                <form class="d-flex" role="search" method="get" action="/business/search_post">
+                    <input name="searchID" class="form-control rounded-end-pill" type="search"
+                        placeholder="Tìm kiếm thông tin" aria-label="Search">
+                </form>
+            </div>
+            {{/if}}
+
+            {{#if isTaskManagement}}
+            <div class="search-form d-flex">
+
+                <button class="btn btn-secondary rounded-start-pill" type="submit"
+                    style="background-color: #008170"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+
+                <form class="d-flex" role="search" method="get" action="/business/searchtask">
+                    <input name="search" class="form-control rounded-end-pill" type="search"
+                        placeholder="Tìm kiếm thông tin" aria-label="Search">
+                </form>
+
+
+
+            </div>
+            {{/if}}
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" aria-current="page" onclick="changeNav(event)" href="/">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeNav(event)" href="/activities">Hoạt động</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeNav(event)" href="/science">Khoa học</a>
+                </li>
+
+                {{#if isChuNhiem}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" onclick="changeNav(event)" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Quản
+                        lý</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">Quản lý thành viên</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="/business/assigntask">Quản lý task</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/business/manage_member">Quản lý thông tin</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="/business/manage_post">Quản lý bài viết</a></li>
+                        <li><a class="dropdown-item" href="/business/viewchart/view">Thống kê</a></li>
+
+                    </ul>
+                </li>
+                {{/if}}
+                {{#if isPhoChuNhiem}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" onclick="changeNav(event)" data-bs-toggle="dropdown"
+                        aria-expanded="false">Quản
+                        lý</a>
+                    <ul class="dropdown-menu">
+                        {{!-- <li>
+                            <a class="dropdown-item" href="#">Quản lý thành viên</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="/business/assigntask">Quản lý task</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/business/manage_member">Quản lý thông tin</a>
+                                </li>
+                            </ul>
+                        </li> --}}
+                        <li><a class="dropdown-item" href="/business/manage_post">Quản lý bài viết</a></li>
+                        <li><a class="dropdown-item" href="/business/viewchart/view">Thống kê</a></li>
+
+                    </ul>
+                </li>
+                {{/if}}
+                <li class="nav-item dropdown">
+                    <a class="burger-menu nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/business/my_profile">Profile</a></li>
+                        {{!-- <li><a class="dropdown-item" href="#">My Task</a></li> --}}
+                        <li><a class="dropdown-item" href="/business/my_post">My Post</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/application/signout">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</div>

@@ -1,0 +1,162 @@
+<!--main-->
+    <div class="container-fluid" style="margin-top:40px;">
+        <div class="row">
+            <div class="col-9">
+                <div class="row" style="background-color: #232D3F;
+                                        border-radius: 25px;">
+                    <div class="col">
+                        <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                        justify-content: center;
+                        align-items: center;" aria-label="group">
+                            <button type="button" id="TruyenThong" style=" border-radius: 25px; "
+                                class="btn text-center btnPhongBan active">Ban
+                                Truyền thông</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                        justify-content: center;
+                        align-items: center;" aria-label=" group">
+                            <button type="button" id="NoiDung" style=" border-radius: 25px;"
+                                class="btn text-center btnPhongBan">Ban
+                                Nội dung</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                        justify-content: center;
+                        align-items: center;" aria-label="group">
+                            <button type="button" style=" border-radius: 25px; " id="HauCan"
+                                class="btn text-center btnPhongBan">Ban
+                                Hậu cần</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                        justify-content: center;
+                        align-items: center;" aria-label="group">
+                            <button type="button" style=" border-radius: 25px;" id="SuKien"
+                                class="btn text-center btnPhongBan">Ban
+                                sự kiện</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-1">
+                <a href="/business/assigntask/addtask">
+                    <button type="button" style="background-color: white;
+                                                color:black;
+                                                width: 50px;
+                                                height: 40px;
+                                                margin: 2em 8em;
+                                                " class="btn btn-outline-secondary">+</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- Bảng chia việc -->
+    <div id="taskTable" >
+        <div class="container-fluid " style="margin:0 auto; margin-top: 30px ;">
+            <div class="row">
+                <div class="col">
+                    <div class="taskGroup">
+                        <div style="padding-top: 20px;padding-bottom: 20px;">
+                            <div class="text-center" style="color:black;
+                            background-color: white;
+                            margin: 0 auto;
+                            border-radius: 15px;
+                            width: 70%;
+                            ">
+                                <h3 style="
+                            margin: auto 0;
+                                        ">TO DO</h3>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="list-group-item" id="TODO_tasks" style="height: 500px;
+                                                                margin: auto 15px;
+                                                                ">
+                                {{#each TODOTask}}
+                                <div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;" onclick= "window.location.href='/business/eachtask?id={{this.ID}}'" >
+                                    <div class="card-body" >
+                                        <b>{{this.TIEUDE}}</b>
+                                        <p style="text-align:right">To: {{this.TENNGUOITHUCHIEN}}</p>
+                                    </div>
+                                </div>
+                                {{/each}}
+
+
+                    
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="taskGroup">
+                        <div style="padding-top: 20px;padding-bottom: 20px;">
+                            <div class="text-center" style="color:black;
+                            background-color: white;
+                            margin: 0 auto;
+                            border-radius: 15px;
+                            width: 70%;
+                            ">
+                                <h3 style="
+                            margin: auto 0;
+                                        ">IN PROGRESS</h3>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+
+                            <div class="list-group-item" id="IN_PROGRESS_tasks" style="height: 500px;
+                                                                margin: auto 15px;">
+                                {{#each INPROGRESSTask}}
+                                <div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;" onclick= "window.location.href='/business/eachtask?id={{this.ID}}'">
+                                    <div class="card-body">
+                                        <b>{{this.TIEUDE}}</b>
+                                        <p style="text-align:right">To: {{this.TENNGUOITHUCHIEN}}</p>
+                                    </div>
+                                </div>
+                                {{/each}}
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="taskGroup">
+                        <div style="padding-top: 20px;padding-bottom: 20px;">
+                            <div class="text-center" style="color:black;
+                            background-color: white;
+                            margin: 0 auto;
+                            border-radius: 15px;
+                            width: 70%;
+                            ">
+                                <h3 style="
+                            margin: auto 0;
+                                        ">DONE</h3>
+                            </div>
+                        </div>
+                        <div style="padding-bottom:15px ;">
+                            <div class="list-group-item" id="DONE_tasks" style="height: 500px;
+                                                                margin: auto 15px;" ondrop="drop(event)"
+                                ondragover="allowDrop(event)">
+                                {{#each DONETask}}
+                                <div class="card task TODO_task" style="cursor: pointer;border-radius: 15px;"
+                                 onclick= "window.location.href='/business/eachtask?id={{this.ID}}'">
+                                    <div class="card-body">
+                                        <b>{{this.TIEUDE}}</b>
+                                        <p style="text-align:right">To: {{this.TENNGUOITHUCHIEN}}</p>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

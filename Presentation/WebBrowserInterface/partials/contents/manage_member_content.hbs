@@ -1,0 +1,257 @@
+    <link rel="stylesheet" href="resources/css/mange-member.css">
+
+<div class="main">
+        <div class="row">
+
+
+            <div class="col-9">
+                <div class="row" style="background-color: #232D3F;
+                                        border-radius: 25px;">
+                    <div class="col">
+                        <form action="/business/manage_member" method="get">
+                            <div class="btn-group me-2  " role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                        class="btn text-center btnPhongBan text-light fw-bold {{#if active_all}}bg-light text-dark{{/if}}">
+                                    Tất cả
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/business/banTruyenThong" method="get">
+                            <div class="btn-group me-2  " role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                        class="btn text-center btnPhongBan text-light fw-bold {{#if active_first}}bg-light text-dark{{/if}}">
+                                    Ban Truyền thông
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col">
+                        <form action="/business/banNoiDung" method="get">
+                            <div class="btn-group me-2  " role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                        class="btn text-center btnPhongBan text-light fw-bold {{#if active_second}}bg-light text-dark{{/if}}">
+                                    Ban Nội dung
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/business/banHauCan" method="get">
+                            <div class="btn-group me-2  " role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                        class="btn text-center btnPhongBan text-light fw-bold {{#if active_third}}bg-light text-dark{{/if}}">
+                                    Ban Hậu cần
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/business/banSuKien" method="get">
+                            <div class="btn-group me-2  " role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                        class="btn text-center btnPhongBan fw-bold text-light {{#if active_fourth}}bg-light text-dark{{/if}}">
+                                    Ban Sự kiện
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-1" >
+                <button type="button" style="background-color: #008170;
+                                                color:black;
+                                                width: 50px;
+                                                height: 40px;
+                                                margin: 2em 8em;
+                                                " class="btn rounded-pill text-light fw-bold " data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                    </svg>
+
+                </button>
+            </div>
+            <!-- Modal -->
+            <form action="/business/add_user" method="post">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fw-bold" id="exampleModalLabel">THÊM THÀNH VIÊN</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row w-100">
+                                    <div class="col">
+                                        <input required minlength="8" maxlength="8" type="text" class="form-control" placeholder="MSSV - 8 ký tự" name="new_user_id">
+                                    </div>
+                                    <div class="col">
+                                        <input required minlength="4" maxlength="4" type="text" class="form-control" placeholder="Mã giới thiệu - 4 ký tự" name="referral_code" >
+                                    </div>
+                                </div>
+                                <div class="row w-100">
+                                    <a type="button" class="btn rounded-pill text-light ms-2" data-bs-toggle="collapse" data-bs-target="#demo" style="background: #008170">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill me-1" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                        </svg>
+                                        XEM
+                                    </a>
+                                    <div id="demo" class="collapse">
+                                        <div class="text-center mt-2">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">MSSV</th>
+                                                    <th scope="col">MÃ GIỚI THIỆU</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                {{#if refs }}
+
+                                                    {{#each refs}}
+                                                        <tr>
+                                                            <th scope="row">{{@index}}</th>
+                                                            <td>{{this.MSSV}}</td>
+                                                            <td>{{this.MAGIOITHIEU}}</td>
+                                                        </tr>
+                                                    {{/each}}
+                                                {{/if}}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="w-50 d-flex justify-content-end">
+                                <button type="button" class="btn btn-secondary rounded-pill me-2 w-25" data-bs-dismiss="modal">ĐÓNG</button>
+                                <button type="submit" class="btn text-light rounded-pill w-25" style="background: #008170">THÊM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+<!--    {{#if on_notification}}-->
+    <div class="row w-100">
+        <div class="d-flex justify-content-center fade show">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </symbol>
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+        </svg>
+            {{#if success}}
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+                Thêm người dùng thành công
+            </div>
+
+
+            <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+            {{/if}}
+            {{#if duplicated}}
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        LỖI: Người dùng đã tồn tại!
+                    </div>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {{/if}}
+        </div>
+    </div>
+<!--    {{/if}}-->
+        <div class="member-list-container">
+                <h2 class="post-list-title">DANH SÁCH THÀNH VIÊN</h2>
+            <table class="member-list-table ">
+                <thead>
+                    <tr class="text-center text-white">
+                        <th class="col">MSSV</th>
+                        <th class="col">HỌ TÊN</th>
+                        <th class="col ">CHỨC VỤ</th>
+                        <th class="col">PHÒNG BAN</th>
+                        <th class="col">CHỨC NĂNG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if members }}
+                        {{#each members}}
+                            <tr class="member">
+
+                                {{#if TRANGTHAI}}
+                                        <td>{{MSSV}}</td>
+                                {{else}}
+                                        <td class="text-white bg-danger">{{MSSV}} - đang bị khoá</td>
+                                {{/if}}
+                                <td >{{HOTEN}}</td>
+                                <td >{{CHUCVU}}</td>
+                                <td>{{BAN}}</td>
+                                <td>
+                                    <a href='/business/member-info-{{MSSV}}' type="button" class="btn text-dark border-dark btn-small">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                        </svg>
+                                        Xem
+                                    </a>
+
+                                    <a href="/business/modifyMember/{{MSSV}}" type="button" class="btn text-dark border-dark btn-small">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                        </svg>
+                                        Sửa
+                                    </a>
+
+                                    <a onclick=confirmAndRedirect({{MSSV}}) type="button" class="btn text-light bg-danger border-dark btn-small">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                        Xoá
+                                    </a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <td class="bg-warning" colspan="5">
+                            <h5>
+                                Không tìm thấy tài khoản theo cầu
+                            </h5>
+                        </td>
+                    {{/if}}
+                </tbody>
+              </table>
+        </div>
+
+    </div>

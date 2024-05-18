@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{activity.TIEUDE}}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/single_activity.css">
+
+</head>
+
+<body>
+    {{#if isUser}}
+    {{>headers/member_homepage_header}}
+    {{else}}
+    {{> headers/homepage_header }}
+    {{/if}}
+    <main id="main">
+        <section class="single-post-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 post-content" data-aos="fade-up">
+
+                        <div class="single-post">
+                            <h1 class="mb-5">{{activity.TIEUDE}}</h1>
+                            {{#each activity.PARAGRAPH}}
+                            <p>{{text}}</p>
+
+                            {{/each}}
+                        </div>
+                        <figure class="my-4">
+                            <img src="{{activity.ANHDINHKEM}}" alt="" class="img-fluid">
+                            
+                        </figure>
+                        <div class="post-meta"><span class="date">Ngày đăng: </span> <span>{{activity.NGAYDANG}}</span></div>
+                       
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="aside-block">
+
+                            <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-otherActivity-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-otherActivity" type="button" role="tab"
+                                        aria-controls="pills-otherActivity" aria-selected="false">HOẠT ĐỘNG
+                                        KHÁC(bấm vào để xem thêm)</button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="pills-tabContent">
+
+                                <div class="tab-pane fade" id="pills-otherActivity" role="tabpanel"
+                                    aria-labelledby="pills-otherActivity-tab">
+                                    {{#each allActivities}}
+                                    <div class="post-entry-1 border-bottom" onclick="window.location.href = '/application/viewactivity?id={{this.ID}}'">
+                                        <img src="{{this.ANHDINHKEM}}" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px"/>
+                                        <h2 class="mb-2"><a href="/application/viewactivity?id={{this.ID}}">{{this.TIEUDE}}</a></h2>
+                                        <div class="post-meta">
+                                            <span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>{{this.NGAYDANG}}</span></div>
+                                    </div>
+
+                                    {{/each}}
+                                    {{!-- <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post1.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Tuổi trẻ tiên phong chuyển đổi số</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div>
+
+                                    <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post2.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Buổi cắm trại bên bờ biển cần giờ</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div>
+
+                                    <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post3.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Sinh hoạt thường niên</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div> --}}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{!-- <main id="main">
+        <section class="single-post-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 post-content" data-aos="fade-up">
+
+                        <div class="single-post">
+                            <h1 class="mb-5">Hoạt động tổng kết năm</h1>
+                            <p><span class="firstcharacter">L</span>orem ipsum dolor sit, amet consectetur adipisicing
+                                elit. Ratione officia sed, suscipit distinctio, numquam omnis quo fuga ipsam quis
+                                inventore voluptatum recusandae culpa, unde doloribus saepe labore alias voluptate
+                                expedita? Dicta delectus beatae explicabo odio voluptatibus quas, saepe qui aperiam
+                                autem obcaecati, illo et! Incidunt voluptas culpa neque repellat sint, accusamus beatae,
+                                cumque autem tempore quisquam quam eligendi harum debitis.</p>
+
+
+                            <p>Sunt reprehenderit, hic vel optio odit est dolore, distinctio iure itaque enim pariatur
+                                ducimus. Rerum soluta, perspiciatis voluptatum cupiditate praesentium repellendus quas
+                                expedita exercitationem tempora aliquam quaerat in eligendi adipisci harum non omnis
+                                reprehenderit quidem beatae modi. Ea fugiat enim libero, ipsam dicta explicabo nihil,
+                                tempore, nulla repellendus eos necessitatibus eligendi corporis cum? Eaque harum,
+                                eligendi itaque numquam aliquam soluta.</p>
+                            <p>Explicabo perspiciatis, laborum provident voluptates illum in nulla consectetur atque
+                                quaerat excepturi quisquam, veniam velit ex pariatur quos consequuntur? Excepturi
+                                reiciendis perferendis, cupiditate dolorem eos illum amet. Beatae voluptates nemo esse
+                                ratione voluptate, nesciunt fugit magnam veritatis voluptas dignissimos doloribus
+                                maiores? Aliquam, dolores natus exercitationem corrupti blanditiis, consequuntur nihil
+                                nobis sed voluptatibus maiores sunt, illo provident aliquid laborum. Vitae, ut.</p>
+                            <p>Reprehenderit aut sed doloribus blanditiis, aspernatur magni? In molestias rem, similique
+                                ut esse repudiandae quod recusandae dolores neque earum omnis at, suscipit fuga? Minima
+                                qui veniam deserunt quisquam error amet at ratione nesciunt porro quis placeat
+                                repudiandae voluptatibus officiis fuga necessitatibus, expedita officia adipisci eaque
+                                labore accusamus? Nesciunt repellat illo exercitationem facilis similique quaerat, quis
+                                sequi? Praesentium nulla ipsam dolor.</p>
+                            <p>Dolorum, incidunt! Adipisci harum itaque maxime dolores doloremque porro eligendi quis,
+                                doloribus vel sit rerum sunt obcaecati nam suscipit nulla vitae alias blanditiis aliquam
+                                debitis atque illo modi et placeat. Ratione iure eveniet provident. Culpa laboriosam sed
+                                ad quia. Corrupti, earum, perferendis dolore cupiditate sint nihil maiores iusto tempora
+                                nobis porro itaque est. Ut laborum culpa assumenda pariatur et perferendis?</p>
+                            <p>Est soluta veritatis laboriosam, consequuntur temporibus asperiores, fugit id a ullam
+                                sed, expedita sequi doloribus fugiat. Odio et necessitatibus enim nam, iste
+                                reprehenderit cupiditate omnis ut iure aliquid obcaecati, repellendus nemo provident
+                                eveniet tempora minus! Voluptates aut laboriosam, maiores nihil accusantium, a dolorum
+                                quaerat tenetur illo eum culpa cum laudantium sunt doloremque modi possimus magni?
+                                Perferendis cum repudiandae corrupti porro.</p>
+                            <p>Quis molestiae, dolorem consequuntur labore perferendis enim accusantium commodi optio,
+                                sequi magnam ad consectetur iste omnis! Voluptatibus, quia officia esse necessitatibus
+                                magnam tempore reprehenderit quo aspernatur! Assumenda, minus dolorem repellendus
+                                corporis corrupti quia temporibus repudiandae in. Sit rem aut, consectetur repudiandae
+                                perferendis nemo alias, iure ipsam omnis quam soluta, nobis animi quis aliquam
+                                blanditiis at. Dicta nemo vero sequi exercitationem.</p>
+                            <p>Architecto ex id at illum aperiam corporis, quidem magnam doloribus non eligendi delectus
+                                laborum porro molestiae beatae eveniet dolor odit optio soluta dolores! Eaque odit a
+                                nihil recusandae, error repellendus debitis ex autem ab commodi, maiores officiis
+                                doloribus provident optio, architecto assumenda! Nihil cum laboriosam eos dolore aliquid
+                                perferendis amet doloremque quibusdam odio soluta vero odit, ipsa, quisquam quod nulla.
+                            </p>
+                            <p>Consequuntur corrupti fugiat quod! Ducimus sequi nemo illo ad necessitatibus amet nobis
+                                corporis et quasi. Optio cum neque fuga. Ad excepturi magnam quisquam ex voluptatibus
+                                vitae aut nam quidem doloribus, architecto perspiciatis sit consequatur pariatur alias
+                                animi expedita quas? Et doloribus voluptatibus perferendis qui fugiat voluptatum autem
+                                facere aspernatur quidem quae assumenda iste, sit similique, necessitatibus laborum
+                                magni. Ea, dolores!</p>
+                            <p>Possimus temporibus rerum illo quia repudiandae provident sed quas atque. Ipsam adipisci
+                                accusamus iste optio illo aliquam molestias? Voluptatibus, veniam recusandae facilis
+                                nobis perspiciatis rem similique, nisi ad explicabo ipsa voluptatum, inventore molestiae
+                                natus adipisci? Fuga delectus quia assumenda totam aspernatur. Nobis hic ea rem, quaerat
+                                voluptate vero illum laboriosam omnis aspernatur labore, natus ex iusto ducimus
+                                exercitationem a officia.</p>
+                        </div>
+                        <figure class="my-4">
+                            <img src="./resources/img/thumbnail_post1.png" alt="" class="img-fluid">
+                            <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit?
+                            </figcaption>
+                        </figure>
+                        <div class="post-meta"><span class="date">Ngày đăng: </span> <span>22/1/2024</span></div>
+                       
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="aside-block">
+
+                            <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-otherActivity-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-otherActivity" type="button" role="tab"
+                                        aria-controls="pills-otherActivity" aria-selected="false">HOẠT ĐỘNG
+                                        KHÁC(bấm vào để xem thêm)</button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="pills-tabContent">
+
+                                <div class="tab-pane fade" id="pills-otherActivity" role="tabpanel"
+                                    aria-labelledby="pills-otherActivity-tab">
+                                    <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post1.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Tuổi trẻ tiên phong chuyển đổi số</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div>
+
+                                    <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post2.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Buổi cắm trại bên bờ biển cần giờ</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div>
+
+                                    <div class="post-entry-1 border-bottom">
+                                        <img src="./resources/img/thumbnail_post3.png" alt="" class="img-fluid"
+                                            style="margin: 4px 0px 4px 0px">
+                                        <h2 class="mb-2"><a href="#">Sinh hoạt thường niên</a></h2>
+                                        <div class="post-meta"><span class="date">Ngày đăng</span> <span
+                                                class="mx-1">&bullet;</span> <span>22/1/2024</span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section> --}}
+    </main>
+
+    {{>footers/homepage_footer}}
+    <div class="footer container-fluid p-5  bg-black">
+        <p> </p>
+    </div>
+    <script src="./resources/js/sticky_header.js"></script>
+    <script>
+        $(function()
+        {
+            $("#pills-otherActivity-tab").click(function()
+            {
+                $(this).text("HOẠT ĐỘNG KHÁC")
+            })
+        })
+    </script>
+</body>
+
+</html>

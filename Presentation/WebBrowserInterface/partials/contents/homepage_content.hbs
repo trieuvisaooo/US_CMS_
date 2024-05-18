@@ -1,0 +1,172 @@
+
+<!--main-->
+<div class="main">
+    <!--Giới thiệu clb-->
+    <div class="container-fluid" style="margin-top: 20px; ">
+        <div class="container-fluid text-center" style="height: max-content;">
+            <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+            <div class="row">
+                <div class="col-6 col-md-6 club-infor" style="margin-top: 5%;">
+                    <h3>US-CMS</h3>
+                    <q>Science is simply the word we use to describe a method of organizing our curiosity</q>
+                    
+                </div>
+                <div class="col-md-6">
+                    <img src="/resources/img/thumbnail_post2.png" style="width: 100%" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popular-activities">
+        <!-- Hoạt động nổi bật -->
+        <h2 class="text-center">HOẠT ĐỘNG NỔI BẬT</h2>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 420px;">
+            <div class="carousel-inner">
+                {{#each activities}}
+                {{#if this.current}}
+                <div class="carousel-item active" onclick="window.location.href='/application/viewactivity?id={{this.value.ID}}'">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-6"><img class="d-block w-100" style="height:400px;width: 500px;"
+                                    src="{{this.value.ANHDINHKEM}}" alt="First slide"></div>
+                            <div class="col-4">
+                                <p class="text-center"><b>{{this.value.TIEUDE}} </b></p>
+                                <p>{{this.value.NOIDUNG}}</p>
+
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="carousel-item" onclick="window.location.href='/application/viewactivity?id={{this.value.ID}}'"> 
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-6"><img class="d-block w-100" style="height:400px;width: 500px;"
+                                    src="{{this.value.ANHDINHKEM}}" alt="First slide"></div>
+                            <div class="col-4">
+                                <p class="text-center"><b>{{this.value.TIEUDE}} </b></p>
+                                <p>{{this.value.NOIDUNG}}</p>
+
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+
+            {{!-- <div class="carousel-item active">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-6"><img class="d-block w-100" style="height:400px;width: 500px;"
+                                src="./resources/img/home/bau-troi-may-tinh-10-800x450.jpg" alt="First slide"></div>
+                        <div class="col-4">
+                            <p class="text-center"><b>Bay tùm lum giữa các vì sao </b></p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div> --}}
+            {{!-- <div class="carousel-item active">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-6"><img class="d-block w-100" style="height:400px;width: 500px;"
+                                src="./resources/img/home/bau-troi-may-tinh-10-800x450.jpg" alt="First slide"></div>
+                        <div class="col-4">
+                            <p class="text-center"><b>Bay tùm lum giữa các vì sao </b></p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div> --}}
+            {{!-- <div class="carousel-item">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-6"><img style="height:400px;width: 500px;" class="d-block w-100"
+                                src="./resources/img/home/hinh-nen-cute-co-chu.jpg" alt="First slide"></div>
+                        <div class="col-4">
+                            <p class="text-center"> <b>Bay tùm lum giữa các vì sao</b></p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                            <p>Quay đều</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+    <!--Bài viết yêu thích -->
+    <div class="favourite-posts">
+        <h2 class="text-center">BÀI VIẾT YÊU THÍCH</h2>
+            <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        {{#each top3Post}}
+                                        <div class="col" onclick="window.location.href ='application/viewpost?id={{this.ID}}'">
+
+                                            <div class="card" style="height: 300px;">
+                                                <div style="height: 200px;">
+                                                    <img src="{{this.ANHDINHKEM}}" class="card-img-top" alt="..."
+                                                        style="height: 200px;">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{this.TIEUDE}}</h5>
+                                                    <div class="card-text">
+                                                        {{this.NOIDUNG}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

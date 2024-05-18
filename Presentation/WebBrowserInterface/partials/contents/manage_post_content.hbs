@@ -1,0 +1,229 @@
+<link rel="stylesheet" href="resources/css/manage_post.css">
+<div class="main">
+        {{#if isPostManagement}}
+        <div class="row">
+            <div class="col-9">
+                <div class="row" style="background-color: #232D3F;
+                                        border-radius: 25px;">
+                    <div class="col">
+                        <form action="/business/manage_post" method="get">
+                            <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label="group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170;"
+                                    class="btn text-center btnPhongBan {{#if status_0}}bg-light{{/if}}">Chờ duyệt</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/business/manage_post_approved" method="get">
+                            <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label=" group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170"
+                                    class="btn text-center btnPhongBan {{#if status_1}}bg-light{{/if}}">Đã duyệt</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="col">
+                        <form action="/business/manage_post_denied" method="get">
+                            <div class="btn-group me-2" role="group" style="width: 100%;display: flex;
+                            justify-content: center;
+                            align-items: center;" aria-label="group">
+                                <button type="submit" style=" border-radius: 25px; background-color: #008170" 
+                                class="btn text-center btnPhongBan {{#if status_2}}bg-light{{/if}}">Bị từ chối</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="col-1" >
+                <form action="/business/add_post" method="get">
+                <button type="submit" style="background-color: white;
+                                                color:black;
+                                                width: 30px;
+                                                height: 30px;
+                                                margin: 2.5em 5em;" 
+                                                class="btn btn-outline-secondary">+</button>
+                </form>
+            </div>
+        </div>
+        {{/if}}
+        <!--Thong bao-->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </symbol>
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+        </svg>
+        {{#if message}}
+            {{#if approvemessage}}
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <div>
+                        <strong>Đã duyệt bài viết "{{post.TIEUDE}}"</strong>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {{/if}}
+
+            {{#if denymessage}}
+                <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        <strong>Đã từ chối bài viết "{{post.TIEUDE}}"</strong>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if deletemessage}}
+            <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        <strong>Đã xoá bài viết "{{post.TIEUDE}}"</strong>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        {{/if}}
+
+        <div class="post-list-container">
+            {{#if myPosts}}
+            <div class="row">
+                <div class="col col-lg-2"></div>
+                <div class="col">
+                    <h2>Danh sách bài viết</h2>
+                </div>
+                <div class="col col-lg-2">
+                    <form action="/business/add_post" method="get">
+                    <button type="submit" style="background-color: white;
+                                                color:black;
+                                                width: 30px;
+                                                height: 30px;
+                                                margin: 2.5em 5em;" 
+                                                class="btn btn-outline-secondary">+</button>
+                    </form>
+                </div>
+            </div>
+            {{else}}
+            <h2>Danh sách bài viết</h2>
+            {{/if}}
+
+                
+            <table class="post-list-table">
+                <thead>
+                    <th>Title</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    {{#if posts}}
+                        {{#if status_0}}
+                            {{#each posts}}
+                            <tr class="post-items">
+                                <td class="post-title" >{{TIEUDE}}</td>
+                                <td class="post-status" >
+                                    <form action="deny_post" method="get" style="float: right" >
+                                        <input type="hidden" name="id" value="{{ID}}">
+                                        {{!-- <button type="submit" class = "btn btn-danger">Từ chối</button> --}}
+                                    </form>
+
+                                    <form action="approve_post" method="get">
+                                        <span class="pending">Chờ duyệt</span>
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                        <input type="hidden" name="id" value="{{ID}}">
+                                        {{!-- <button type="submit" class = "btn btn-primary">Duyệt bài</button> --}}
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if status_1}}
+                            {{#each posts}}
+                            <tr class="post-items">
+                                <td class="post-title">{{TIEUDE}}</td>
+                                <td class="post-status">
+                                    <span class="approved">Đã duyệt</span>
+                                    <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                    <form action="delete_post" method="get" style="float: right">
+                                        <input type="hidden" name="id" value="{{ID}}">
+                                        {{!-- <button type="submit" class = "btn btn-danger">XOÁ</button> --}}
+                                    </form>
+                                </td>
+
+                            </tr>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if status_2}}
+                            {{#each posts}}
+                            <tr class="post-items">
+                                <td class="post-title">{{TIEUDE}}</td>
+                                <td class="post-status">
+                                        <span class="denied">Từ chối</span>
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                        <form action="delete_post" method="get" style="float: right">
+                                            <input type="hidden" name="id" value="{{ID}}">
+                                            {{!-- <button type="submit" class = "btn btn-danger">XOÁ</button> --}}
+                                        </form>
+                                    </td>
+                            </tr>
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+
+                        {{#if myPosts}}
+                            {{#each pPosts}}
+                                <tr class="post-items">
+                                    <td class="post-title">{{TIEUDE}}</td>
+                                    <td class="post-status">
+                                        <span class="pending">Chờ duyệt</span>
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+
+                            {{#each aPosts}}
+                                <tr class="post-items">
+                                    <td class="post-title">{{TIEUDE}}</td>
+                                    <td class="post-status">
+                                        <span class="approved">Đã duyệt</span>
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+
+                            {{#each dPosts}}
+                                <tr class="post-items">
+                                    <td class="post-title">{{TIEUDE}}</td>
+                                    <td class="post-status">
+                                        <span class="denied">Từ chối</span>
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+
+                            {{#each result}}
+                            <tr class="post-items">
+                                    <td class="post-title">{{TIEUDE}}</td>
+                                    <td class="post-status">
+                                        <a href="/business/post-{{ID}}"type="button" class="btn btn-success " b>XEM</a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+
+                        {{/if}}
+                </tbody>
+              </table>
+        </div>
+
+    </div>

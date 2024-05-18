@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/sign_up.css">
+    <title>Đăng kí</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    {{!-- <div id="header">
+        <nav class="navbar navbar-expand-lg border-body" data-bs-theme="dark">
+            <!-- <div class="container-fluid"> -->
+                <img src="./resources/img/home/hinh-nen-cute-co-chu.jpg"
+                    style="width: 50px; height: 50px;border-radius: 50%;">
+                <p>&nbsp;</p>
+                <a class="navbar-brand" href="/" style="color:white; font-size: 16px; width: 25%;">US-CMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu-navbar" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active header-item" aria-current="page" href="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link header-item" href="#">Hoạt động</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link header-item" href="/Business/manage_post">Khoa học</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link header-item" href="#">Về chúng tôi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link header-item" href="#">Liên hệ</a>
+                        </li>
+  
+                    </ul>
+  
+                </div>
+                <!-- <form class="d-flex">
+                    <button id="DangKy" class="btn btn-outline-success" type="submit">Đăng kí</button>
+                </form> -->
+                <form class="d-flex" action="/application/signin" method="get">
+                    <button id="DangNhap" class="btn btn-outline-success" type="submit">Đăng nhập</button>
+                </form>
+            <!-- </div> -->
+        </nav>
+    </div> --}}
+    {{> headers/homepage_header}}
+    <div class="sign-up-main">
+       <div class="sign-up-text">
+            <h3>Nhập mã số sinh viên và mã giới thiệu <br> để đăng kí tài khoản</h3>
+        </div>
+        <div class="sign-up-form">
+            <form method="post" action="referralChecking">
+                {{#if existedUser}}
+                    <p class="bg-danger rounded text-white text-center" >
+                        Người dùng `{{student_id}}` đã tồn tại. Vui lòng thử lại
+                    </p>
+                {{/if}}
+
+                {{#if invalidCode}}
+                    <p class="bg-danger rounded text-white text-center" >
+                        Mã giới thiệu không hợp lệ. Vui lòng thử lại
+                    </p>
+                {{/if}}
+                <div class="txt_field">
+                    <input type="text" name="student_id" required minlength="8" maxlength="8">
+                    <span></span>
+                    <label>MSSV</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="referral_code" required minlength="4" maxlength="4">
+                    <span></span>
+                    <label>Mã giới thiệu (4 ký tự)</label>
+                </div>
+                <input class="sign-up-btn" type="submit" name="submit" value="Đăng kí">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

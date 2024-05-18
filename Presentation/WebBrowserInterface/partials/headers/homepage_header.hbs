@@ -1,0 +1,49 @@
+<div id="header">
+    <nav class="navbar navbar-expand-lg border-body" data-bs-theme="dark">
+        <!-- <div class="container-fluid"> -->
+
+
+
+        <img src="/resources/img/thumbnail_post2.png" style="width: 50px; height: 50px;border-radius: 50%;">
+        <p>&nbsp;</p>
+
+        <a class="navbar-brand" href="/" style="color:white; font-size: 16px; width: 25%;">US-CMS</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse menu-navbar" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link header-item" aria-current="page" href="/">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-item" href="/activities">Hoạt động</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-item" href="/science">Khoa học</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-item" href="/aboutus">Về chúng tôi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-item" href="/contact">Liên hệ</a>
+                </li>
+
+            </ul>
+
+        </div>
+        {{#if isSignUp}}
+        <form class="d-flex" action="/application/signup1" method="get">
+            <button id="DangKy" class="btn btn-outline-success" type="submit">Đăng kí</button>
+        </form>
+        {{/if}}
+        {{#if isSignIn}}
+        <form class="d-flex" action="/application/signin" method="get">
+            <button id="DangNhap" class="btn btn-outline-success" type="submit">Đăng nhập</button>
+        </form>
+        {{/if}}
+        <!-- </div> -->
+    </nav>
+</div>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="resources/css/sign-in.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <!--header-->
+  {{!-- <div id="header">
+      <nav class="navbar navbar-expand-lg border-body" data-bs-theme="dark">
+          <!-- <div class="container-fluid"> -->
+              <img src="/resources/img/home/hinh-nen-cute-co-chu.jpg"
+                  style="width: 50px; height: 50px;border-radius: 50%;">
+              <p>&nbsp;</p>
+              <a class="navbar-brand" href="/" style="color:white; font-size: 16px; width: 25%;">US-CMS</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse menu-navbar" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active header-item" aria-current="page" href="#">Trang chủ</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link header-item" href="#">Hoạt động</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link header-item" href="/Business/manage_post">Khoa học</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link header-item" href="#">Về chúng tôi</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link header-item" href="#">Liên hệ</a>
+                      </li>
+
+                  </ul>
+
+              </div>
+              <form class="d-flex" action="/application/signup1" method ="get">
+                  <button id="DangKy" class="btn btn-outline-success" type="submit">Đăng ký</button>
+              </form>
+          <!-- </div> -->
+      </nav>
+  </div> --}}
+    {{> headers/homepage_header}}
+
+  <!-- <div class = "container-fluid gradient-background" id="main"> -->
+        <section id = "login-frame">
+            <div class="container rounded-5 login-background p-3">
+                    <div class="row align-items-center g-lg-5 py-5 px-3">
+                      <div class="col-lg-7 text-center text-lg-start">
+                        <h2 class="display-5 fw-normal lh-1 text-main-color ">Vui lòng đăng nhập</h2>
+                      </div>
+                      <div class="col-md-10 mx-auto col-lg-5 ">
+                        <h1 style="color:red;"> {{err}}</h1>
+                        <form class="p-4 p-md-5" action="/application/login" method="post">
+                          <div class="form-floating mb-5 ">
+                            <h3 class="fs-4 fw-normal text-main-color">TÀI KHOẢN</h3>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" minlength="8" maxlength="8" required>
+    
+                          </div>
+                          <div class="form-floating mb-5">
+                            <h3 class="fs-4 fw-normal text-main-color">MẬT KHẨU</h3>
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+    
+                          </div>
+                          <div class="mb-3">
+                            <a href="forgetpassword" style="text-decoration:none; ">Quên mật khẩu?</a>
+                          </div>
+                          <div class="login-btn">
+                            <button id="DangNhap" class="w-50 btn btn-lg rounded-pill" type="submit">ĐĂNG NHẬP</button>
+                          </div>             
+                          <hr class="my-4">               
+                        </form>
+                      </div>
+                    </div>
+            </div>
+
+            
+        </section>
+
+    <!-- </div> -->
+
+    <div class="container-fluid p-5  bg-black">
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+

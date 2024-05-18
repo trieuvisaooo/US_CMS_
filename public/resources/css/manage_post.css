@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Extra Condensed', sans-serif !important;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body {
+    background-image: linear-gradient(to right bottom, #0f0f0f, #151518, #1a1a20, #1d1f29, #202532, #1e2b3c, #1a3245, #0f394d, #004252, #004b52, #00544c, #005b41);
+    font-size: 16px;
+    background-repeat: no-repeat;
+}
+
+#header {
+  margin-top: 30px;
+  padding-left: 120px;
+  padding-right: 120px;
+  font-size: 16px;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border: 0px;
+}
+
+.background {
+  background: #0f0f0f;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 16px;
+    color: #F2ECFF !important;
+}
+a:hover {
+    opacity: 0.5;
+    transition: 0.5 ease-out;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3a3a3a;
+    border: 1px solid #3a3a3a;
+}
+
+.nav-item > a {
+  
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #F2ECFF;
+}
+
+.dropdown-menu li {
+    position: relative;
+    }
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -1px;
+}
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+}
+
+.dropdown-item {
+    color: black !important;
+}
+
+button[type="button"] {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.burger-menu > span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: white;
+    transition: all 300ms ease-in-out;
+    transform-origin: 6px 1px;
+}
+
+.burger-menu > span:nth-child(1) {
+    margin-top: 6px;
+}
+
+.burger-menu > span:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.row{
+  margin: 0.5em 2em;
+  padding: 0.5em;
+  width: 100%;
+  align-items: center;
+}
+
+.main {
+  margin: 0px 120px;
+}
+
+.post-list-container {
+    width: 100%;
+    height: 100%;
+    background-color: #232d3f;
+    border-radius: 12px;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+.post-list-title{
+    font-size: 26px;
+    font-weight: 600;
+    color: #0f0f0f;;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 0.1em;
+    margin: 1.5em 6em 1em 6em;
+    text-align: center;
+}
+
+.post-list-table {
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-spacing: 0px 18px;
+    overflow: auto;
+}
+
+.post-list-table thead tr {
+    display: none;
+}
+
+.post-list-table tbody tr {
+    background: white;
+    border: none;
+}
+
+.post-list-table tbody th, .post-list-table tbody td {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.post-list-container h2 {
+  text-align: center;
+  background-color: white;
+  border-radius: 16px;
+  margin-left: 160px;
+  margin-right: 160px;
+}
+.post-list-container table, .post-list-container .table {
+  width: 100%;
+  border-spacing: 0px 18px;
+}
+.post-list-container table thead, .post-list-container .table thead {
+  display: none;
+}
+.post-list-container table tbody tr, .post-list-container .table tbody tr {
+  background: white;
+  border: none;
+}
+.post-list-container table tbody th, .post-list-container table tbody td, .post-list-container .table tbody th, .post-list-container .table tbody td {
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.post-list-container table tbody td.post-title, .post-list-container .table tbody td.post-title {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.post-list-container table tbody td.post-status, .post-list-container .table tbody td.post-status {
+  text-align: right;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+.post-list-container table tbody td.post-status span, .post-list-container .table tbody td.post-status span {
+  position: relative;
+  border-radius: 30px;
+  padding: 4px 10px 4px 25px;
+}
+.post-list-container table tbody td.post-status span:after, .post-list-container .table tbody td.post-status span:after {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-radius: 50%;
+}
+.post-list-container table tbody td.post-status .approved, .post-list-container .table tbody td.post-status .approved {
+  background: #71dd8a;
+  color: #0f401b;
+}
+.post-list-container table tbody td.post-status .approved:after, .post-list-container .table tbody td.post-status .approved:after {
+  background: #145523;
+}
+.post-list-container table tbody td.post-status .pending, .post-list-container .table tbody td.post-status .pending {
+  background: #ffe187;
+  color: #876500;
+}
+.post-list-container table tbody td.post-status .pending:after, .post-list-container .table tbody td.post-status .pending:after {
+  background: #ba8b00;
+}
+.post-list-container table tbody td.post-status .denied, .post-list-container .table tbody td.post-status .denied {
+  background: #efa2a9;
+  color: #7c151f;
+}
+.post-list-container table tbody td.post-status .denied:after, .post-list-container .table tbody td.post-status .denied:after {
+  background: #a71d2a;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: black;
+}

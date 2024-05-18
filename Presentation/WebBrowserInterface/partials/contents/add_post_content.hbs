@@ -1,0 +1,62 @@
+<script src="/resources/js/post.js"></script>
+<link rel="stylesheet" href="/resources/css/post.css">
+
+<div class="main">
+	<div class="row">
+		<div class="text-center">
+			<h1 class="text-light">Tạo Bài Đăng</h1>
+		</div>
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="title" class="text-light">Tiêu Đề <span class="require">*</span></label>
+				{{#if isUpdatePost}}
+				<input type="text" class="form-control" name="title" value="{{post.TIEUDE}}" required />
+				{{else}}
+				<input type="text" class="form-control" name="title" required />
+				{{/if}}
+			</div>
+
+			<div class="form-group">
+				<label for="description" class="text-light">Nội Dung<span class="require">*</span></label>
+				<textarea rows="9" class="form-control" name="description"
+					required>{{#if isUpdatePost}}{{post.NOIDUNG}}{{/if}}</textarea>
+			</div>
+
+			<div class="form-group" class="text-light">
+				<label for="description" class="text-light">Hình Ảnh</label>
+				<div class="mb-3">
+					<label for="formFile" class="form-label">Default file input example</label>
+					<input class="form-control" type="file" id="formFile" name="image">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<p class="text-light"><span class="require">*</span> - required fields</p>
+			</div>
+
+
+			<div class="form-group">
+				{{#if isManage}}
+				<button type="submit" class="btn btn-primary" formaction="update_post_confirm2-{{post.ID}}">
+						Cập Nhật Bài Đăng
+					</button>
+										<a href="/business/manage_post" class="btn btn-danger"> Cancel </a>
+
+				{{else}}
+					{{#if isUpdatePost}}
+					<button type="submit" class="btn btn-primary" formaction="update_post_confirm-{{post.ID}}">
+						Cập Nhật Bài Đăng
+					</button>
+					{{else}}
+					<button type="submit" class="btn btn-primary" formaction="add_post_confirm">
+						Tạo Bài Đăng
+					</button>
+					{{/if}}
+					<a href="/business/my_post" class="btn btn-danger"> Cancel </a>
+
+				{{/if}}
+
+			</div>
+		</form>
+	</div>
+</div>
